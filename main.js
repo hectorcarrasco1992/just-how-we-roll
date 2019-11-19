@@ -93,10 +93,40 @@ function roll2ndDice(){
 }
 
 function roll12(){
-    
+    getRandomNumber(12)
+
+    if(getRandomNumber(12)===1){
+        document.querySelector('#d12-roll').src = 'images/numbers/1.png'
+    }else if(getRandomNumber(12) === 2){
+        document.querySelector('#d12-roll').src = 'images/numbers/2.png'
+    }else if(getRandomNumber(12)===3){
+        document.querySelector('#d12-roll').src = 'images/numbers/3.png'
+    }else if(getRandomNumber(12) ===4){
+        document.querySelector('#d12-roll').src = 'images/numbers/4.png'
+    }else if(getRandomNumber(12)=== 5){
+        document.querySelector('#d12-roll').src = 'images/numbers/5.png'
+    }else if(getRandomNumber(12)===6){
+      document.querySelector('#d12-roll').src='images/numbers/6.png'
+}else if(getRandomNumber(12)===7){
+    document.querySelector('#d12-roll').src = 'images/numbers/7.png'
+}
+else if(getRandomNumber(12)===8){
+    document.querySelector('#d12-roll').src = 'images/numbers/8.png'
+}
+else if(getRandomNumber(12)===9){
+    document.querySelector('#d12-roll').src = 'images/numbers/9.png'
+}
+else if(getRandomNumber(12)===10){
+    document.querySelector('#d12-roll').src = 'images/numbers/10.png'
+}
+else if(getRandomNumber(12)===11){
+    document.querySelector('#d12-roll').src = 'images/numbers/11.png'
+}
+else if(getRandomNumber(12)===12){
+    document.querySelector('#d12-roll').src = 'images/numbers/12.png'
 }
 
-
+}
 
 
 
@@ -110,6 +140,8 @@ function roll12(){
  document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
 
  document.querySelector('#double-d6-roll-2').addEventListener('click',roll2ndDice)
+
+ document.querySelector('#d12-roll').addEventListener('click',roll12)
 
     
 
