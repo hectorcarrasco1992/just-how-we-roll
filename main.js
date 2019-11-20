@@ -39,6 +39,12 @@ function getRandomNumber(max) {
    function roll1(){
     getRandomNumber(6)
     sixes.push(getRandomNumber(6))
+
+    const median = median6()
+    const mean = mean6()
+
+    document.querySelector('#d6-rolls-mean').innerText=mean
+    document.querySelector('#d6-rolls-median').innerText=median
     
     if(getRandomNumber(6)===1){
         document.querySelector('#d6-roll').src = 'images/d6/1.png';
@@ -203,6 +209,8 @@ function reload(){
  document.querySelector('#d6-roll').addEventListener('click',roll1)
  
  document.querySelector('#d6-roll').addEventListener('click',mean6)
+
+ document.querySelector('#d6-roll').addEventListener('click',median6)
  
  
 document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
@@ -228,9 +236,39 @@ document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
      for(let i=0;i<sixes.length;i++){
          sumOf6 += sixes[i]
      }
+        
+     return sumOf6/sixes.length
+
      
-     document.querySelector('#d6-rolls-mean').innerText=sumOf6/6
+     document.querySelector('#d6-rolls-mean').innerText=sumOf6/sixes.length
+  }
+
+
+ function median6(){
+    sixes.push(getRandomNumber(6))
+    let med6 = []
+     
+    for (let i = 0; i < sixes.length; i++){
+        med6.push(sixes[i])
+        med6.sort()
+
+     mid = Math.floor(med6.length/2)
+    }
+    
+    if(med6.length % 2 === 0){
+        med6.push(med6[mid-1])
+    }else {
+        med6.push(med6[mid])
+    }
+
+     return med6[mid]
+
+     document.querySelector('#d6-rolls-median').innerText=med6[mid]
+
  }
+sixes.push(3, 2, 4, 5)
+ const result = median6()
+
 console.log(sixes)
 /*********
  * RESET *
