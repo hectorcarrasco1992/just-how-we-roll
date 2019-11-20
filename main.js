@@ -101,6 +101,11 @@ function roll2ndDice(){
 
 function roll12(){
     getRandomNumber(12)
+    const means = mean12()
+    const median = median12()
+
+    document.querySelector('#d12-rolls-mean').innerText=means
+    document.querySelector('#d12-rolls-median').innerText=median
 
     if(getRandomNumber(12)===1){
         document.querySelector('#d12-roll').src = 'images/numbers/1.png'
@@ -137,6 +142,12 @@ function roll12(){
 
 function roll20(){
     getRandomNumber(20)
+
+    const means20 = mean20()
+    const medians20 = median20()
+
+    document.querySelector('#d20-rolls-mean').innerHTML=means20
+    document.querySelector('#d20-rolls-median').innerHTML=medians20
 
 
     if(getRandomNumber(20)===1){
@@ -266,10 +277,72 @@ document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
      document.querySelector('#d6-rolls-median').innerText=med6[mid]
 
  }
-sixes.push(3, 2, 4, 5)
- const result = median6()
 
-console.log(sixes)
+ function mean12(){
+    twelves.push(getRandomNumber(12))
+    let sumOf12=0
+    for(let i=0;i<twelves.length;i++){
+        sumOf12 += twelves[i]
+    }
+       
+    return sumOf12/twelves.length
+
+ }
+
+ function median12(){
+    twelves.push(getRandomNumber(6))
+    let med12 = []
+     
+    for (let i = 0; i < twelves.length; i++){
+        med12.push(twelves[i])
+        med12.sort()
+
+     mid = Math.floor(med12.length/2)
+    }
+    
+    if(med12.length % 2 === 0){
+        med12.push(med12[mid-1])
+    }else {
+        med12.push(med12[mid])
+    }
+
+     return med12[mid]
+ }
+
+ function mean20(){
+    twenties.push(getRandomNumber(20))
+    let sumOf20=0
+    for(let i=0;i<twenties.length;i++){
+        sumOf20 += twenties[i]
+    }
+       
+    return sumOf20/twenties.length
+
+ }
+
+ function median20(){
+    twenties.push(getRandomNumber(6))
+    let med20 = []
+     
+    for (let i = 0; i < twenties.length; i++){
+        med20.push(twenties[i])
+        med20.sort()
+
+     mid = Math.floor(med20.length/2)
+    }
+    
+    if(med20.length % 2 === 0){
+        med20.push(med20[mid-1])
+    }else {
+        med20.push(med20[mid])
+    }
+
+     return med20[mid]
+
+ }
+
+
+
 /*********
  * RESET *
  *********/
