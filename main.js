@@ -38,8 +38,7 @@ function getRandomNumber(max) {
 
    function roll1(){
     getRandomNumber(6)
-    
-   
+    sixes.push(getRandomNumber(6))
     
     if(getRandomNumber(6)===1){
         document.querySelector('#d6-roll').src = 'images/d6/1.png';
@@ -203,7 +202,7 @@ function reload(){
 
  document.querySelector('#d6-roll').addEventListener('click',roll1)
  
-  document.querySelector('#d6-roll').addEventListener('click',mean6)
+ document.querySelector('#d6-roll').addEventListener('click',mean6)
  
  
 document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
@@ -225,8 +224,12 @@ document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
 
  function mean6(){
      sixes.push(getRandomNumber(6))
-
-     document.querySelector('#d6-rolls-mean').innerText=sixes.length/6
+     let sumOf6=0
+     for(let i=0;i<sixes.length;i++){
+         sumOf6 += sixes[i]
+     }
+     
+     document.querySelector('#d6-rolls-mean').innerText=sumOf6/6
  }
 console.log(sixes)
 /*********
