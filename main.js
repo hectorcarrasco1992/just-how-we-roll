@@ -203,7 +203,7 @@ function reload(){
 
  document.querySelector('#d6-roll').addEventListener('click',roll1)
  
- document.querySelector('#d6-roll').addEventListener('click',mean6)
+  document.querySelector('#d6-roll').addEventListener('click',mean6)
  
  
 document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
@@ -222,16 +222,12 @@ document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
 /****************
  * MATH SECTION *
  ****************/
-function mean6(){
-  sixes.push(getRandomNumber(6));
-  const rollSixArr = [];
-    for(let i =0;i<=sixes.length;i++){
-        rollSixArr.push([i])
-    }
-  
-    document.querySelector('#d6-rolls-mean').innerText=rollSixArr/6
-}
 
+ function mean6(){
+     sixes.push(getRandomNumber(6))
+
+     document.querySelector('#d6-rolls-mean').innerText=sixes.length/6
+ }
 console.log(sixes)
 /*********
  * RESET *
