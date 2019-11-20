@@ -38,10 +38,12 @@ function getRandomNumber(max) {
 
    function roll1(){
     getRandomNumber(6)
+    
    
     
     if(getRandomNumber(6)===1){
-        document.querySelector('#d6-roll').src = 'images/d6/1.png'
+        document.querySelector('#d6-roll').src = 'images/d6/1.png';
+        
     }else if(getRandomNumber(6) === 2){
         document.querySelector('#d6-roll').src = 'images/d6/2.png'
     }else if(getRandomNumber(6)===3){
@@ -107,25 +109,89 @@ function roll12(){
         document.querySelector('#d12-roll').src = 'images/numbers/5.png'
     }else if(getRandomNumber(12)===6){
       document.querySelector('#d12-roll').src='images/numbers/6.png'
-}else if(getRandomNumber(12)===7){
+    }else if(getRandomNumber(12)===7){
     document.querySelector('#d12-roll').src = 'images/numbers/7.png'
-}
-else if(getRandomNumber(12)===8){
+    }
+    else if(getRandomNumber(12)===8){
     document.querySelector('#d12-roll').src = 'images/numbers/8.png'
-}
-else if(getRandomNumber(12)===9){
+    }
+    else if(getRandomNumber(12)===9){
     document.querySelector('#d12-roll').src = 'images/numbers/9.png'
-}
-else if(getRandomNumber(12)===10){
+    }
+    else if(getRandomNumber(12)===10){
     document.querySelector('#d12-roll').src = 'images/numbers/10.png'
-}
-else if(getRandomNumber(12)===11){
+    }
+    else if(getRandomNumber(12)===11){
     document.querySelector('#d12-roll').src = 'images/numbers/11.png'
-}
-else if(getRandomNumber(12)===12){
+    }
+    else if(getRandomNumber(12)===12){
     document.querySelector('#d12-roll').src = 'images/numbers/12.png'
+    }
+
 }
 
+function roll20(){
+    getRandomNumber(20)
+
+
+    if(getRandomNumber(20)===1){
+        document.querySelector('#d20-roll').src = 'images/numbers/1.png'
+    }else if(getRandomNumber(20) === 2){
+        document.querySelector('#d20-roll').src = 'images/numbers/2.png'
+    }else if(getRandomNumber(20)===3){
+        document.querySelector('#d20-roll').src = 'images/numbers/3.png'
+    }else if(getRandomNumber(20) ===4){
+        document.querySelector('#d20-roll').src = 'images/numbers/4.png'
+    }else if(getRandomNumber(20)=== 5){
+        document.querySelector('#d20-roll').src = 'images/numbers/5.png'
+    }else if(getRandomNumber(20)===6){
+      document.querySelector('#d20-roll').src='images/numbers/6.png'
+    }else if(getRandomNumber(20)===7){
+    document.querySelector('#d20-roll').src = 'images/numbers/7.png'
+    }
+    else if(getRandomNumber(20)===8){
+    document.querySelector('#d20-roll').src = 'images/numbers/8.png'
+    }
+    else if(getRandomNumber(20)===9){
+    document.querySelector('#d20-roll').src = 'images/numbers/9.png'
+    }
+    else if(getRandomNumber(20)===10){
+    document.querySelector('#d20-roll').src = 'images/numbers/10.png'
+    }
+    else if(getRandomNumber(20)===11){
+    document.querySelector('#d20-roll').src = 'images/numbers/11.png'
+    }
+    else if(getRandomNumber(20)===12){
+    document.querySelector('#d20-roll').src = 'images/numbers/12.png'
+    }
+    else if(getRandomNumber(20)===13){
+    document.querySelector('#d20-roll').src = 'images/numbers/13.png'
+    }
+    else if(getRandomNumber(20)===14){
+    document.querySelector('#d20-roll').src = 'images/numbers/14.png'
+    }
+    else if(getRandomNumber(20)===15){
+    document.querySelector('#d20-roll').src = 'images/numbers/15.png'
+    }
+    else if(getRandomNumber(20)===16){
+    document.querySelector('#d20-roll').src = 'images/numbers/16.png'
+    }
+    else if(getRandomNumber(20)===17){
+    document.querySelector('#d20-roll').src = 'images/numbers/17.png'
+    }
+    else if(getRandomNumber(20)===18){
+    document.querySelector('#d20-roll').src = 'images/numbers/18.png'
+    }
+    else if(getRandomNumber(20)===19){
+    document.querySelector('#d20-roll').src = 'images/numbers/19.png'
+    }
+    else if(getRandomNumber(20)===20){
+    document.querySelector('#d20-roll').src = 'images/numbers/20.png'
+    }
+}
+
+function reload(){
+    location.reload(true)
 }
 
 
@@ -136,12 +202,19 @@ else if(getRandomNumber(12)===12){
  *******************/
 
  document.querySelector('#d6-roll').addEventListener('click',roll1)
-
- document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
+ 
+ document.querySelector('#d6-roll').addEventListener('click',mean6)
+ 
+ 
+document.querySelector('#double-d6-roll-1').addEventListener('click',roll2)
 
  document.querySelector('#double-d6-roll-2').addEventListener('click',roll2ndDice)
 
  document.querySelector('#d12-roll').addEventListener('click',roll12)
+ 
+ document.querySelector('#d20-roll').addEventListener('click',roll20)
+
+ document.querySelector('#reset-button').addEventListener('click',reload )
 
     
 
@@ -149,8 +222,17 @@ else if(getRandomNumber(12)===12){
 /****************
  * MATH SECTION *
  ****************/
+function mean6(){
+  sixes.push(getRandomNumber(6));
+  const rollSixArr = [];
+    for(let i =0;i<=sixes.length;i++){
+        rollSixArr.push([i])
+    }
+  
+    document.querySelector('#d6-rolls-mean').innerText=rollSixArr/6
+}
 
-
+console.log(sixes)
 /*********
  * RESET *
  *********/
